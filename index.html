@@ -22,6 +22,19 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
+
+    function hasGetUserMedia() {
+        return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia || navigator.msGetUserMedia);
+    }
+
+    if (hasGetUserMedia()) {
+        // Good to go!
+        console.log('audio available');
+    } else {
+        console.log('getUserMedia() is not supported in your browser');
+    }
+
     var socket = io();
     $('form').submit(function(){
         socket.emit('chat message', $('#msg_input').val());
