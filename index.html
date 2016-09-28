@@ -88,10 +88,35 @@
         elem.scrollTop = elem.scrollHeight;
     }
 
-    var socket = io();
-    $('form').submit(function(){
-        socket.emit('chat message', $('#msg_input').val());
+    function getSearchParameters() {
+        var prmstr = window.location.search.substr(1);
+        return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+    }
 
+    function transformToAssocArray( prmstr ) {
+        var params = {};
+        var prmarr = prmstr.split("&");
+        for ( var i = 0; i < prmarr.length; i++) {
+            var tmparr = prmarr[i].split("=");
+            params[tmparr[0]] = tmparr[1];
+        }
+        return params;
+    }
+
+    var params = getSearchParameters();
+
+    var socket = io();
+    $('form').submit(function() {
+
+        var msg = '';
+
+        if(params['id'] !== undefined) {
+            msg = msg + params['id'] + ':';
+        }
+
+        msg = msg + $('#msg_input').val();
+
+        socket.emit('chat message',  msg);
 
         $('#msg_input').val('');
         return false;
