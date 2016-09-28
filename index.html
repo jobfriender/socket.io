@@ -17,6 +17,35 @@
     <div id="messages"></div>
 </div>
 
+<div class="select_chat">
+    <p>Chat Time: 6:30pm Pacific Time</p>
+    <p>Host: Sam</p>
+    <p>Duration: 30 Minutes</p>
+    <p>Limit: 10 People</p>
+</div>
+
+<div class="challenges">
+    <h3>Required Skills & Experience</h3>
+    <p>Object Oriented PHP development (LAMP stack)</p>
+    <p>Codeigniter, Laravel, or similar (Phalcon, Zend, Yii, etc.)</p>
+    <p>SQL, MySQL, Postres</p>
+
+    <h3>Desired Skills & Experience</h3>
+    <p>Computer Science experience</p>
+    <p>ElasticSearch</p>
+    <p>Exposure to big data technology</p>
+    <p>Exposure to data science technology</p>
+
+    <h3>Benefits & Perks</h3>
+    <p>One day work-from-home</p>
+    <p>Potential to become a Lead or Manager</p>
+    <p>Competitive salary</p>
+    <p>Full health and dental insurance</p>
+    <p>Profit sharing</p>
+    <p>Stock options</p>
+    <p>Paid vacation</p>
+</div>
+
 <form action="">
     <input id="msg_input" autocomplete="off" /><button>Send</button>
 </form>
@@ -103,13 +132,15 @@
         return params;
     }
 
-    var params = getSearchParameters();
+
 
     var socket = io();
     $('form').submit(function() {
 
         var msg = '';
+        var params = getSearchParameters();
 
+        // prepend handle name to msg
         if(params['id'] !== undefined) {
             msg = msg + params['id'] + ':';
         }

@@ -2,9 +2,15 @@
     margin: 5px;
 
     list-style-type: none; padding: 0;
-    overflow-y:scroll;
+    overflow-y: scroll;
     height: 500px;
     width: 50%;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
+    border-radius: 12px;
 }
 
 form {
@@ -31,5 +37,34 @@ form button {
     background: rgb(130, 224, 255);
     border: none;
     padding: 10px;
+    border-radius: 12px;
+}
+
+.select_chat {
+    width: 300px;
+    padding: 5px;
+    margin: 5px;
+
+    color: white;
+    background-color: #444400;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
+    border-radius: 12px;
+}
+
+.challenges {
+    width: 300px;
+    height: 300px;
+    overflow: auto;
+    padding: 5px;
+    margin: 5px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
     border-radius: 12px;
 }
