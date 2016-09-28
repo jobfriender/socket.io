@@ -83,6 +83,11 @@
 
 <script>
 
+    function auto_scroll() {
+        var elem = document.getElementById('messages');
+        elem.scrollTop = elem.scrollHeight;
+    }
+
     var socket = io();
     $('form').submit(function(){
         socket.emit('chat message', $('#msg_input').val());
@@ -94,8 +99,7 @@
 
     socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
-        var elem = document.getElementById('messages');
-        elem.scrollTop = elem.scrollHeight;
+        auto_scroll();
     });
 
 </script>
