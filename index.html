@@ -1,26 +1,34 @@
 <!doctype html>
 <html>
 <head>
-    <title>Socket.IO chat</title>
+    <title>Eyehawk.io</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font: 13px Helvetica, Arial; }
         form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
         form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
         form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-        #messages { list-style-type: none; margin: 0; padding: 0; }
+
         #messages li { padding: 5px 10px; }
         #messages li:nth-child(odd) { background: #eee; }
     </style>
 </head>
 <body>
-<ul id="messages"></ul>
+
+<div id="chatdiv">
+    <div id="messages"></div>
+</div>
+
 <form action="">
     <input id="msg_input" autocomplete="off" /><button>Send</button>
 </form>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<video autoplay></video>
+
 <script>
 
     function hasGetUserMedia() {
@@ -28,22 +36,70 @@
         navigator.mozGetUserMedia || navigator.msGetUserMedia);
     }
 
+    /*
     if (hasGetUserMedia()) {
         // Good to go!
         console.log('audio available');
+        navigator.getUserMedia  = navigator.getUserMedia ||
+                navigator.webkitGetUserMedia ||
+                navigator.mozGetUserMedia ||
+                navigator.msGetUserMedia;
     } else {
         console.log('getUserMedia() is not supported in your browser');
     }
+    */
+
+    var errorCallback = function(e) {
+        console.log('Reeeejected!', e);
+    };
+
+    function initializeRecorder(stream) {
+        var audioContext = window.AudioContext;
+        var context = new audioContext();
+        var audioInput = context.createMediaStreamSource(stream);
+        var bufferSize = 2048;
+        // create a javascript node
+        var recorder = context.createJavaScriptNode(bufferSize, 1, 1);
+        // specify the processing function
+        recorder.onaudioprocess = recorderProcess;
+        // connect stream to our recorder
+        audioInput.connect(recorder);
+        // connect our recorder to the previous destination
+        recorder.connect(context.destination);
+    }
+
+    function recorderProcess(e) {
+        var left = e.inputBuffer.getChannelData(0);
+    }
+
+    var video = document.querySelector('video');
+
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia({audio: true, video: true}, function(stream) {
+            video.src = window.URL.createObjectURL(stream);
+        }, errorCallback);
+    } else {
+        video.src = 'somevideo.webm'; // fallback.
+    }
+</script>
+
+<script>
 
     var socket = io();
     $('form').submit(function(){
         socket.emit('chat message', $('#msg_input').val());
+
+
         $('#msg_input').val('');
         return false;
     });
+
     socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
+        var elem = document.getElementById('messages');
+        elem.scrollTop = elem.scrollHeight;
     });
+
 </script>
 </body>
 </html>

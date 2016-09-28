@@ -1,0 +1,6 @@
+#messages {
+    list-style-type: none; margin: 0; padding: 0;
+    overflow:scroll;
+    height: 500px;
+    width: 50%;
+}
