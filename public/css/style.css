@@ -1,8 +1,11 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {height: 100%; font: 13px Helvetica, Arial; }
+
 .chats {
     float: left;
     width: 320px;
     overflow-y: scroll;
-    height: 700px;
+    height: 80%;
 }
 
 .column-right { float: left; width: 400px; }
@@ -10,16 +13,14 @@
 
 #messages {
     margin: 5px;
-
     list-style-type: none; padding: 0;
     overflow-y: scroll;
-    height: 700px;
+    height: 500px;
     width: 300px;
-
-    
-
-    border-radius: 12px;
 }
+
+#messages li { padding: 5px 10px; }
+#messages li:nth-child(odd) { background: #eee; }
 
 form {
 

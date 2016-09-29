@@ -3,12 +3,10 @@
 <head>
     <title>Eyehawk.io</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font: 13px Helvetica, Arial; }
 
 
-        #messages li { padding: 5px 10px; }
-        #messages li:nth-child(odd) { background: #eee; }
+
+
     </style>
 </head>
 <body>
@@ -141,13 +139,13 @@
 <video autoplay></video>
 
 <script>
-
+    /*
     function hasGetUserMedia() {
         return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia || navigator.msGetUserMedia);
     }
 
-    /*
+
     if (hasGetUserMedia()) {
         // Good to go!
         console.log('audio available');
@@ -158,7 +156,7 @@
     } else {
         console.log('getUserMedia() is not supported in your browser');
     }
-    */
+
 
     var errorCallback = function(e) {
         console.log('Reeeejected!', e);
@@ -192,6 +190,7 @@
     } else {
         video.src = 'somevideo.webm'; // fallback.
     }
+    */
 </script>
 
 <script>
