@@ -3,8 +3,7 @@ html, body
 {
     height: 100%;
     font: 13px Helvetica, Arial;
-    background-image: url('/background.jpg'); // hawk
-    background-repeat: no-repeat;
+    background: rgb(79, 110, 123) url('/background.jpg') no-repeat;
 
     --action-color: rgb(42, 72, 98);
     --action-color-2: rgb(79, 110, 123);
