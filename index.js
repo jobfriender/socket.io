@@ -3,6 +3,8 @@ var express = require('express');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+
+
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
@@ -29,3 +31,5 @@ io.sockets.on('connection', function(socket){
 http.listen(80, function(){
   console.log('listening on *:80');
 });
+
+
