@@ -1,14 +1,22 @@
+.chats {
+    float: left;
+    width: 320px;
+    overflow-y: scroll;
+    height: 700px;
+}
+
+.column-right { float: left; width: 400px; }
+.column-center { float: left; width: 350px; }
+
 #messages {
     margin: 5px;
 
     list-style-type: none; padding: 0;
     overflow-y: scroll;
-    height: 500px;
-    width: 50%;
+    height: 700px;
+    width: 300px;
 
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    
 
     border-radius: 12px;
 }
@@ -45,20 +53,24 @@ form button {
 }
 
 .select_chat {
-    float: left;
+
+    font-family: "Times New Roman";
 
     width: 300px;
     padding: 5px;
     margin: 5px;
+    height: 90px;
 
     color: white;
-    background-color: #444400;
+    background: rgb(183, 237, 244);
 
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+
 
     border-radius: 12px;
+}
+
+.blue {
+    background: rgb(232, 242, 174);
 }
 
 .resume {
@@ -97,4 +109,22 @@ form button {
     border-color: black;
 
     border-radius: 12px;
+}
+
+.time {
+    font-size: larger;
+    color: darkblue;
+}
+
+.host {
+    color: black;
+}
+
+.skill {
+    display: inline;
+    float: left;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #777777;
 }
