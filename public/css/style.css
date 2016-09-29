@@ -5,6 +5,8 @@ html, body
     font: 13px Helvetica, Arial;
     background-image: url('/office.jpg');
     background-repeat: no-repeat;
+
+    --action-color: rgb(39, 73, 130);
 }
 
 .chats {
@@ -63,10 +65,15 @@ form input {
 
 form button {
     width: 9%;
-    background: rgb(130, 224, 255);
+    background: var(--action-color);
     border: none;
     padding: 10px;
     border-radius: 12px;
+    color: white;
+}
+
+.action {
+    color: var(--action-color);
 }
 
 .select_chat {
@@ -98,7 +105,7 @@ form button {
     margin: 5px;
 
     color: white;
-    background: rgb(130, 224, 255);
+    background: var(--action-color);
 
     border-style: solid;
     border-width: 1px;
