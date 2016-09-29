@@ -45,6 +45,8 @@ form button {
 }
 
 .select_chat {
+    float: left;
+
     width: 300px;
     padding: 5px;
     margin: 5px;
@@ -59,7 +61,14 @@ form button {
     border-radius: 12px;
 }
 
+.next {
+    display: block;
+    clear: both;
+}
+
 .challenges {
+    float: left;
+
     width: 300px;
     height: 300px;
     overflow: auto;
