@@ -1,26 +1,41 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body {height: 100%; font: 13px Helvetica, Arial; }
+html, body
+{
+    height: 100%;
+    font: 13px Helvetica, Arial;
+    background-image: url('/office.jpg');
+    background-repeat: no-repeat;
+}
 
 .chats {
     float: left;
     width: 320px;
     overflow-y: scroll;
-    height: 80%;
+    height:80vh;
 }
 
-.column-right { float: left; width: 400px; }
+.column-right
+{
+    float: left; width: 400px;
+}
+
 .column-center { float: left; width: 350px; }
 
 #messages {
     margin: 5px;
     list-style-type: none; padding: 0;
     overflow-y: scroll;
-    height: 500px;
+    height:80vh;
     width: 300px;
+    background-color: white;
 }
 
-#messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { background: #eee; }
+#messages li { padding: 5px 10px; background: rgb(153, 204, 255); }
+
+#messages li:nth-child(odd)
+{
+    background: #eee;
+}
 
 form {
 
@@ -43,6 +58,7 @@ form input {
 
 .header {
     margin: 5px;
+    color: white;
 }
 
 form button {
@@ -60,7 +76,7 @@ form button {
     width: 300px;
     padding: 5px;
     margin: 5px;
-    height: 90px;
+    height: 110px;
 
     color: white;
     background: rgb(183, 237, 244);
@@ -105,9 +121,7 @@ form button {
     padding: 5px;
     margin: 5px;
 
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    background-color: white;
 
     border-radius: 12px;
 }
