@@ -32,6 +32,10 @@ form input {
     border: 0; padding: 10px; width: 90%; margin-right: .5%;
 }
 
+.header {
+    margin: 5px;
+}
+
 form button {
     width: 9%;
     background: rgb(130, 224, 255);
