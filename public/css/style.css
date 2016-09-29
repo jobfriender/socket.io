@@ -61,6 +61,23 @@ form button {
     border-radius: 12px;
 }
 
+.resume {
+    float: left;
+
+    width: 300px;
+    padding: 5px;
+    margin: 5px;
+
+    color: white;
+    background: rgb(130, 224, 255);
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
+    border-radius: 12px;
+}
+
 .next {
     display: block;
     clear: both;
