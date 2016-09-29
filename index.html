@@ -11,7 +11,12 @@
 
 <div class="chats">
     <div class="select_chat">
-        <div class="time"><a href='/?chat_id=1'>Chat Time: 6:30pm Pacific Time <i class="fa fa-comment action" aria-hidden="true"></i></a></div>
+        <div class="time">
+            <a href='/?room=1'>
+                Chat Time: 6:30pm Pacific Time
+                <i class="fa fa-comment" aria-hidden="true"></i>
+            </a>
+        </div>
         <div class="host">Host: Sam</div>
         <div class="host">Desc: Mid Level PHP Engineer</div>
         <div class="host">Location: San Francisco</div>
@@ -21,9 +26,9 @@
     </div>
     <div class="select_chat blue">
         <div class="time">
-            <a href='/?chat_id=2'>
+            <a href='/?room=2'>
                 Chat Time: 6:30pm Pacific Time
-                <i class="fa fa-comment action" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
             </a>
         </div>
         <div class="host">Host: Alex</div>
@@ -35,9 +40,9 @@
     </div>
     <div class="select_chat">
         <div class="time">
-            <a href='/?chat_id=3'>
+            <a href='/?room=3'>
                 Chat Time: 6:30pm Pacific Time
-                <i class="fa fa-comment action" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
             </a>
         </div>
         <div class="host">Host: Maddy</div>
@@ -49,9 +54,9 @@
     </div>
     <div class="select_chat blue">
         <div class="time">
-            <a href='/?chat_id=4'>
+            <a href='/?room=4'>
                 Chat Time: 6:30pm Pacific Time
-                <i class="fa fa-comment action" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
             </a>
         </div>
         <div class="host">Host: Taylor</div>
@@ -63,9 +68,9 @@
     </div>
     <div class="select_chat">
         <div class="time">
-            <a href='/?chat_id=5'>
+            <a href='/?room=5'>
                 Chat Time: 6:30pm Pacific Time
-                <i class="fa fa-comment action" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
             </a>
         </div>
         <div class="host">Host: Eric</div>
@@ -77,9 +82,9 @@
     </div>
     <div class="select_chat blue">
         <div class="time">
-            <a href='/?chat_id=6'>
+            <a href='/?room=6'>
                 Chat Time: 6:30pm Pacific Time
-                <i class="fa fa-comment action" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
             </a>
         </div>
         <div class="host">Host: Sarah</div>
@@ -91,9 +96,9 @@
     </div>
     <div class="select_chat">
         <div class="time">
-            <a href='/?chat_id=7'>
+            <a href='/?room=7'>
                 Chat Time: 6:30pm Pacific Time
-                <i class="fa fa-comment action" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
             </a>
         </div>
         <div class="host">Host: Sam, JobSpringPartners</div>
@@ -105,9 +110,9 @@
     </div>
     <div class="select_chat blue">
         <div class="time">
-            <a href='/?chat_id=8'>
+            <a href='/?room=8'>
                 Chat Time: 6:30pm Pacific Time
-                <i class="fa fa-comment action" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
             </a>
         </div>
         <div class="host">Host: Tim</div>
@@ -247,17 +252,21 @@
     }
 
     var socket = io();
+
+    // join room
+    socket.emit('subscribe', getSearchParameters('room'));
+    socket.emit('send', { room: getSearchParameters('room'), message: getSearchParameters('handle') + ' : entered room' });
+
     $('form').submit(function() {
 
-        // prepend handle name to msg
-        socket.emit('chat message', (getSearchParameters('handle')) +
-                ': ' + $('#msg_input').val());
+        var msg = getSearchParameters('handle') + ': ' + $('#msg_input').val();
+        socket.emit('send', { room: getSearchParameters('room'), message: msg });
 
         $('#msg_input').val('');
         return false;
     });
 
-    socket.on('chat message', function(msg){
+    socket.on('message', function (msg) {
         $('#messages').append($('<li>').text(msg));
         auto_scroll();
     });

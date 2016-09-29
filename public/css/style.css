@@ -3,10 +3,12 @@ html, body
 {
     height: 100%;
     font: 13px Helvetica, Arial;
-    background-image: url('/office.jpg');
+    background-image: url('/background.jpg'); // hawk
     background-repeat: no-repeat;
 
-    --action-color: rgb(39, 73, 130);
+    --action-color: rgb(42, 72, 98);
+    --action-color-2: rgb(79, 110, 123);
+
 }
 
 .chats {
@@ -86,7 +88,7 @@ form button {
     height: 110px;
 
     color: white;
-    background: rgb(183, 237, 244);
+    background: var(--action-color-2);
 
 
 
@@ -94,7 +96,7 @@ form button {
 }
 
 .blue {
-    background: rgb(232, 242, 174);
+    background: var(--action-color);
 }
 
 .resume {
@@ -133,13 +135,19 @@ form button {
     border-radius: 12px;
 }
 
-.time {
+.time a:link {
     font-size: larger;
-    color: darkblue;
+    color: whitesmoke;
 }
 
+.time a:visited {
+    font-size: larger;
+    color: whitesmoke;
+}
+
+
 .host {
-    color: black;
+    color: navajowhite;
 }
 
 .skill {
