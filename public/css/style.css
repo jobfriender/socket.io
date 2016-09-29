@@ -6,7 +6,8 @@ html, body
     background: rgb(79, 110, 123) url('/background.jpg') no-repeat;
 
     --action-color: rgb(42, 72, 98);
-    --action-color-2: rgb(79, 110, 123);
+    --action-color-2: rgb(42, 72, 130);
+    #--action-color-2: rgb(79, 110, 123);
 
 }
 
@@ -20,17 +21,17 @@ html, body
 
 .column-right
 {
-    float: left; width: 400px;
+    float: right; width: 400px;
 }
 
-.column-center { float: left; width: 350px; }
+.column-center { float: left; width: 550px; }
 
 #messages {
     margin: 5px;
     list-style-type: none; padding: 0;
     overflow-y: scroll;
     height:80vh;
-    width: 300px;
+    width: 500px;
     background-color: white;
 }
 
@@ -42,22 +43,15 @@ html, body
 }
 
 form {
-
     margin: 5px;
-
     padding: 3px; position: fixed; bottom: 0;
-
     width: 50%;
 
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-
-    border-radius: 12px;
 }
 
 form input {
     border: 0; padding: 10px; width: 90%; margin-right: .5%;
+    border-radius: 12px;
 }
 
 .header {
@@ -168,4 +162,16 @@ form button {
     border-radius: 6px;
     background-color: white;
     color: darkgreen;
+}
+
+.submit_btn {
+    font-family: "Trebuchet MS";
+    display: inline;
+    float: left;
+    margin: 4px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: white;
+    color: darkgreen;
+    font-size: larger;
 }
