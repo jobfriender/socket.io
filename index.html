@@ -6,23 +6,24 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link type="image/x-icon" href="/favicon.ico" />
-</head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <body>
 
 <div class="header">
-    <h2>Eyehawk.io - Anonymous Chat</h2>
+    <img src="logo.png" class="logo">
+    <h2 class="logo_text">Eyehawk.io - Keep Your Eyes Open</h2>
 </div>
 
 <div class="chats">
     <div class="select_chat">
         <div class="time">
             <a href='/?room=1'>
-                Chat Time: 6:30pm Pacific Time
-                <div class="join"><i class="fa fa-comment" aria-hidden="true"></i> Join Chat</div>
+                Mid Level PHP Engineer
+                <div class="join"><i class="fa fa-comment" aria-hidden="true"></i> Join Room</div>
             </a>
         </div>
+        <div class="host">Chat Time: 6:30pm Pacific Time</div>
         <div class="host">Host: Sam</div>
-        <div class="host">Desc: Mid Level PHP Engineer</div>
         <div class="host">Location: San Francisco</div>
         <div class="skill">PHP</div>
         <div class="skill">Laravel</div>
@@ -129,9 +130,7 @@
 </div>
 
 <div class="column-center">
-    <div id="chatdiv">
-        <div id="messages"></div>
-    </div>
+    <div id="messages"></div>
 </div>
 
 
@@ -158,20 +157,19 @@
         <p>Paid vacation</p>
     </div>
     <div class="resume">
-        <p>Match Chats</p>
+        <p>Resume Kept Private</p>
         <p><input type="file" name="resume" size="chars" class="submit_btn"></p>
 
         <button type="submit" class="submit_btn">
             <i class="fa fa-bar-chart"></i> Analyze Resume
         </button>
 
-        <p>***Resume Kept Private***</p>
     </div>
 </div>
 
 
 <form action="">
-    <input id="msg_input" autocomplete="off" /><button>Send</button>
+    <input id="msg_input" autocomplete="off" /><button>Chat <i class="fa fa-chevron-up" aria-hidden="true"></i></button>
 </form>
 
 <script src="/socket.io/socket.io.js"></script>
