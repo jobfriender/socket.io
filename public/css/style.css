@@ -44,28 +44,33 @@ html, body
     background: #eee;
 }
 
-form {
-    margin: 5px;
-    padding: 3px; position: fixed; bottom: 0;
-    width: 50%;
 
-}
-
-form input {
-    border: 0;
-    padding: 10px;
-    width: 740px;
-    margin-right: .5%;
-    border-radius: 12px;
-}
 
 .header {
     margin: 5px;
     color: white;
 }
 
+form {
+    margin: 5px;
+    padding: 3px; position: fixed; bottom: 0;
+    width: 520px;
+}
+
+form input {
+    float: left;
+    border: 0;
+    padding: 10px;
+    width: 400px;
+    margin-right: 5px;
+    border-radius: 12px;
+
+    
+}
+
 form button {
-    width: 9%;
+    float: left;
+    width: 100px;
     background: var(--skill-color);
     border: none;
     padding: 10px;
