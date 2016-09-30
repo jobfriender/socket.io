@@ -244,7 +244,7 @@
     function getSearchParameters(key) {
         var prmstr = window.location.search.substr(1);
         arr = prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
-        return arr[key] || '';
+        return arr[key] || 'someone';
     }
 
     function transformToAssocArray( prmstr ) {
@@ -262,6 +262,9 @@
     // join room
     socket.emit('subscribe', getSearchParameters('room'));
     socket.emit('send', { room: getSearchParameters('room'), message: getSearchParameters('handle') + ' : entered room' });
+
+    socket.emit('send', { room: getSearchParameters('room'), message: 'HawkBot' + ' : chat starts at 6:30pm Pacific Time' });
+    socket.emit('send', { room: getSearchParameters('room'), message: 'HawkBot' + ' : I can help you match your job. What is your favorite programming langugage?' });
 
     $('form').submit(function() {
 
