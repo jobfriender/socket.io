@@ -18,7 +18,7 @@
 
     <form>
         <input type="text" id="msg_input" autocomplete="off" />
-        <button>Chat <i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+        <button id="chat_btn"><i class="fa fa-angle-double-up fa-2x" aria-hidden="true"></i></button>
     </form>
 </div>
 
@@ -38,7 +38,14 @@
 
 <script>
 
-    $("input:text:visible:first").focus();
+    //$("input:text:visible:first").focus();
+    $( "#msg_input" ).focus(function() {
+        $("#messages").css('visibility', 'visible');
+    });
+
+    $( "#chat_btn" ).click(function() {
+        $("#messages").css('visibility', 'visible');
+    });
 
     /*
     function hasGetUserMedia() {
@@ -129,7 +136,10 @@
     $('form').submit(function() {
 
         var msg = getSearchParameters('handle') + ': ' + $('#msg_input').val();
-        socket.emit('send', { room: getSearchParameters('room'), message: msg });
+
+        if($('#msg_input').val().length != 0) {
+            socket.emit('send', {room: getSearchParameters('room'), message: msg});
+        }
 
         $('#msg_input').val('');
         return false;

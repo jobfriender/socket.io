@@ -7,7 +7,7 @@ html, body
     --action-color: rgb(70, 137, 192);
     --action-color-2: rgb(70, 125, 172);
     --action-color-3: rgb(145, 11, 47);
-    --skill-color: #D1A57D;
+    --skill-color: rgb(130, 5, 48);
 
 }
 
@@ -37,6 +37,7 @@ html, body
     width: 500px;
     background-color: white;
     border-radius: 12px;
+    visibility: hidden;
 }
 
 #messages li { padding: 5px 10px; background: rgb(153, 204, 255); }
@@ -73,9 +74,9 @@ form button {
     width: 100px;
     background: var(--skill-color);
     border: none;
-    padding: 10px;
+    padding: 6px;
     border-radius: 12px;
-    color: darkgreen;
+    color: white;
 }
 
 .action {
