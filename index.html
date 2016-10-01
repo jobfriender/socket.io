@@ -15,17 +15,11 @@
 
 <div class="column-center">
     <div id="messages"></div>
-
     <form>
         <input type="text" id="msg_input" autocomplete="off" />
         <button id="chat_btn"><i class="fa fa-angle-double-up fa-2x" aria-hidden="true"></i></button>
     </form>
 </div>
-
-
-
-
-
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -38,14 +32,16 @@
 
 <script>
 
-    //$("input:text:visible:first").focus();
-    $( "#msg_input" ).focus(function() {
+    $("input:text:visible:first").focus();
+
+    $( "#msg_input" ).click(function() {
         $("#messages").css('visibility', 'visible');
     });
 
-    $( "#chat_btn" ).click(function() {
+    $( "#msg_input" ).keypress(function() {
         $("#messages").css('visibility', 'visible');
     });
+
 
     /*
     function hasGetUserMedia() {
@@ -128,19 +124,13 @@
 
     // join room
     socket.emit('subscribe', getSearchParameters('room'));
-    socket.emit('send', { room: getSearchParameters('room'), message: getSearchParameters('handle') + ' : entered room' });
+    socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: getSearchParameters('handle') + ' entered room' });
 
-    socket.emit('send', { room: getSearchParameters('room'), message: 'HawkBot' + '$ chat starts at 6:30pm Pacific Time' });
-    socket.emit('send', { room: getSearchParameters('room'), message: 'HawkBot' + '$ I can help you match your job. What is your favorite programming langugage?' });
+    socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: 'chat starts at 6:30pm Pacific Time' });
+    socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: 'I can help you match your job. What is your favorite programming langugage?' });
 
-    $('form').submit(function() {
-
-        var msg = getSearchParameters('handle') + ': ' + $('#msg_input').val();
-
-        if($('#msg_input').val().length != 0) {
-            socket.emit('send', {room: getSearchParameters('room'), message: msg});
-        }
-
+    $('#chat_btn').click(function() {
+        socket.emit('send', { handle: getSearchParameters('handle'), room: getSearchParameters('room'), message: $('#msg_input').val() } );
         $('#msg_input').val('');
         return false;
     });
