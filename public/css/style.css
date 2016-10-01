@@ -3,14 +3,16 @@ html, body
 {
     height: 100%;
     font: 13px Helvetica, Arial;
-    background: rgb(79, 110, 123) url('/background.jpg') no-repeat;
 
     --action-color: rgb(70, 137, 192);
     --action-color-2: rgb(70, 125, 172);
     --action-color-3: rgb(145, 11, 47);
-    --skill-color: rgb(204, 209, 83);
+    --skill-color: #D1A57D;
 
 }
+
+// debug
+// * { border: 1px solid black; }
 
 .chats {
     float: left;
@@ -44,8 +46,6 @@ html, body
     background: #eee;
 }
 
-
-
 .header {
     margin: 5px;
     color: white;
@@ -65,7 +65,7 @@ form input {
     margin-right: 5px;
     border-radius: 12px;
 
-    
+
 }
 
 form button {
