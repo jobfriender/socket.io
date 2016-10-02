@@ -16,7 +16,7 @@
 <div class="column-center">
     <div id="messages"></div>
     <form>
-        <input type="text" id="msg_input" autocomplete="off" />
+        <input type="text" placeholder="how will the role's success be measured" id="msg_input" autocomplete="off" />
         <button id="chat_btn"><i class="fa fa-angle-double-up fa-2x" aria-hidden="true"></i></button>
     </form>
 </div>
@@ -32,6 +32,10 @@
 
 <script>
 
+    function show_messages() {
+        $("#messages").css('visibility', 'visible');
+    }
+
     $("input:text:visible:first").focus();
 
     $( "#msg_input" ).click(function() {
@@ -39,7 +43,7 @@
     });
 
     $( "#msg_input" ).keypress(function() {
-        $("#messages").css('visibility', 'visible');
+        show_messages();
     });
 
 
@@ -130,6 +134,7 @@
     socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: 'I can help you match your job. What is your favorite programming langugage?' });
 
     $('#chat_btn').click(function() {
+        show_messages();
         socket.emit('send', { handle: getSearchParameters('handle'), room: getSearchParameters('room'), message: $('#msg_input').val() } );
         $('#msg_input').val('');
         return false;
