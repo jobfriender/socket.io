@@ -1,4 +1,4 @@
-# eyehawk2
+# Socket.io Example
 Socket.io chat example
 
 # install packages from package.json
