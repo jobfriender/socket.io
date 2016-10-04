@@ -22,7 +22,9 @@ io.sockets.on('connection', function(socket){
 
   socket.on('send', function(data) {
     console.log('sending message: ' + data.message);
-    io.sockets.in(data.room).emit('message', data.message);
+    if(data.message.length > 0) {
+      io.sockets.in(data.room).emit('message', data.handle + '$ ' + data.message);
+    }
   });
 });
 
