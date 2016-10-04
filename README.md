@@ -5,10 +5,6 @@ Socket.io chat example
 
 npm install
 
-# install socket.io
-
-npm install --save socket.io
-
 # run the app server
 
 node index.js
