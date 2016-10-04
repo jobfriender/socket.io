@@ -5,10 +5,10 @@ Socket.io chat example
 
 npm install
 
-# install socket.io
-
-npm install --save socket.io
-
 # run the app server
 
-node index.js
+sudo forever index.js
+
+# where to specify port
+
+port is listed at bottom of index.js
