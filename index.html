@@ -9,10 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <body>
 
-
-
-
-
 <div class="column-center">
     <div id="messages"></div>
     <form>
@@ -32,20 +28,7 @@
 
 <script>
 
-    function show_messages() {
-        $("#messages").css('visibility', 'visible');
-    }
-
     $("input:text:visible:first").focus();
-
-    $( "#msg_input" ).click(function() {
-        $("#messages").css('visibility', 'visible');
-    });
-
-    $( "#msg_input" ).keypress(function() {
-        show_messages();
-    });
-
 
     /*
     function hasGetUserMedia() {
@@ -103,6 +86,8 @@
 
 <script>
 
+    $('#messages').css('height', window.innerHeight - 200)
+
     function auto_scroll() {
         var elem = document.getElementById('messages');
         elem.scrollTop = elem.scrollHeight;
@@ -134,7 +119,6 @@
     socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: 'I can help you match your job. What is your favorite programming langugage?' });
 
     $('#chat_btn').click(function() {
-        show_messages();
         socket.emit('send', { handle: getSearchParameters('handle'), room: getSearchParameters('room'), message: $('#msg_input').val() } );
         $('#msg_input').val('');
         return false;
