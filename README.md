@@ -5,9 +5,13 @@ Socket.io chat example
 
 npm install
 
+# install forever globally
+
+npm install forever -g
+
 # run the app server
 
-sudo forever index.js
+forever start index.js
 
 # where to specify port
 
