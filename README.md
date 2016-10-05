@@ -7,8 +7,12 @@ npm install
 
 # run the app server
 
-node index.js
+sudo forever index.js
+
+# where to specify port
+
+port is listed at bottom of index.js
 
 # run the app server forever
 
-forever start index.js
+sudo forever start index.js
