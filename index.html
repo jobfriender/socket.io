@@ -113,7 +113,7 @@
 
     // join room
     socket.emit('subscribe', getSearchParameters('room'));
-    socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: getSearchParameters('handle') + ' entered room' });
+    socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: getSearchParameters('handle') + ' entered room ' + getSearchParameters('room') });
 
     socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: 'chat starts at 6:30pm Pacific Time' });
     socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: 'I can help you match your job. What is your favorite programming langugage?' });
