@@ -113,10 +113,9 @@
 
     // join room
     socket.emit('subscribe', getSearchParameters('room'));
-    socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: getSearchParameters('handle') + ' entered room ' + getSearchParameters('room') });
-
-    socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: 'chat starts at 6:30pm Pacific Time' });
-    socket.emit('send', { handle: 'HawkBot', room: getSearchParameters('room'), message: 'I can help you match your job. What is your favorite programming langugage?' });
+    socket.emit('send', { handle: 'MyBot', room: getSearchParameters('room'), message: getSearchParameters('handle') + ' entered room ' + getSearchParameters('room') });
+    socket.emit('send', { handle: 'MyBot', room: getSearchParameters('room'), message: 'chat starts at 6:30pm Pacific Time' });
+    socket.emit('send', { handle: 'MyBot', room: getSearchParameters('room'), message: 'I can help you match your job. What is your favorite programming langugage?' });
 
     $('#chat_btn').click(function() {
         socket.emit('send', { handle: getSearchParameters('handle'), room: getSearchParameters('room'), message: $('#msg_input').val() } );
