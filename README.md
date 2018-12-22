@@ -1,22 +1,22 @@
 # Socket.io Example
 Socket.io chat example
 
-# install packages from package.json
+## install packages from package.json
 
-npm install
+```npm install```
 
-# install forever globally
+## install forever globally
 
-npm install forever -g
+```npm install forever -g```
 
-# run the app server
+## run the app server
 
-forever start index.js
+```forever start index.js```
 
-# where to specify port
+## where to specify port
 
-port is listed at bottom of index.js
+```port is listed at bottom of index.js```
 
-# run the app server forever
+## run the app server forever
 
-sudo forever start index.js
+```sudo forever start index.js```
